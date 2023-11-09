@@ -1,2 +1,1 @@
-# unity-build-hub
-Description will be updated eventually.
+This file will be updated eventually.
