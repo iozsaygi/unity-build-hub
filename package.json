@@ -1,0 +1,21 @@
+{
+  "name": "com.iozsaygi.unity-build-hub",
+  "version": "1.0.0",
+  "displayName": "Unity Build Hub",
+  "description": "Unity Build Hub is a DevOps utility to ease the build process for several platforms.",
+  "unity": "2022.3",
+  "dependencies": {
+  },
+  "keywords": [
+    "Build",
+    "Hub",
+    "Utility",
+    "Tool",
+    "DevOps"
+  ],
+  "author": {
+    "name": "İsmail Özsaygı",
+    "email": "devozsaygi@gmail.com",
+    "url": "https://github.com/iozsaygi"
+  }
+}
