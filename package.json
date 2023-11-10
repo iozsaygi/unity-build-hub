@@ -17,5 +17,8 @@
     "name": "İsmail Özsaygı",
     "email": "devozsaygi@gmail.com",
     "url": "https://github.com/iozsaygi"
-  }
+  },
+  "documentationUrl": "https://github.com/iozsaygi/unity-build-hub",
+  "changeLogUrl": "https://github.com/iozsaygi/unity-build-hub/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/iozsaygi/unity-build-hub/blob/main/LICENSE"
 }
