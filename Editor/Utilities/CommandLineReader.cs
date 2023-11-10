@@ -5,12 +5,12 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Utilities
 {
-    internal sealed class CommandLineReader
+    public sealed class CommandLineReader
     {
         // ReSharper disable once InconsistentNaming
         private readonly string[] commandLineArguments = Environment.GetCommandLineArgs();
 
-        internal void FetchArgumentFromCommandLine(string desiredCommandLineArgument, out string value)
+        public void FetchArgumentFromCommandLine(string desiredCommandLineArgument, out string value)
         {
             Debug.Assert(!string.IsNullOrEmpty(desiredCommandLineArgument));
 
