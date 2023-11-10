@@ -1,4 +1,5 @@
 using System;
+using UnityBuildHub.Editor.Debugger;
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
@@ -21,8 +22,8 @@ namespace UnityBuildHub.Editor.Utilities
 
                 if (i + 1 >= commandLineArguments.Length)
                 {
-                    throw new Exception(
-                        $"Error: {desiredCommandLineArgument} argument is present but has no value.");
+                    UnityBuildHubDebugger.Log($"{desiredCommandLineArgument} argument is present but has no value.",
+                        LogCategory.Critical);
                 }
 
                 value = commandLineArguments[i + 1];

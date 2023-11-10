@@ -4,7 +4,7 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Debugger
 {
-    internal static class Debugger
+    internal static class UnityBuildHubDebugger
     {
         internal static void Log(string message, LogCategory logCategory = LogCategory.Unknown)
         {
