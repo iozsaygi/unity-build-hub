@@ -4,14 +4,14 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Debugger
 {
-    internal static class UnityBuildHubDebugger
+    internal static class Logging
     {
-        internal static void Log(string message, LogCategory logCategory = LogCategory.Unknown)
+        internal static void Message(string context, LogCategory logCategory = LogCategory.Unknown)
         {
-            Debug.Assert(!string.IsNullOrEmpty(message));
+            Debug.Assert(!string.IsNullOrEmpty(context));
 
-            var tag = string.Concat('[', "Unit Build Hub Debugger", ']');
-            var log = string.Concat(tag, ' ', message);
+            var tag = string.Concat('[', "Unit Build Hub Logging", ']');
+            var log = string.Concat(tag, ' ', context);
 
             switch (logCategory)
             {

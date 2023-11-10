@@ -22,7 +22,7 @@ namespace UnityBuildHub.Editor.Utilities
 
                 if (i + 1 >= commandLineArguments.Length)
                 {
-                    UnityBuildHubDebugger.Log($"{desiredCommandLineArgument} argument is present but has no value.",
+                    Logging.Message($"{desiredCommandLineArgument} argument is present but has no value.",
                         LogCategory.Critical);
                 }
 
