@@ -18,6 +18,8 @@ namespace UnityBuildHub.Editor.Debugger
                 case LogCategory.Critical:
                     Debug.LogError(string.Concat("<color=red>", log, "</color>"));
                     break;
+                case LogCategory.Exception:
+                    throw new Exception(log);
                 case LogCategory.Trace:
                     Debug.Log(string.Concat("<color=white>", log, "</color>"));
                     break;
