@@ -11,13 +11,16 @@ namespace UnityBuildHub.Editor.Kernel
     {
         // ReSharper disable once IdentifierTypo
         internal static readonly BuilderConfiguration MacOSIL2CPPBuilderConfiguration = new
-        (new BuildPlayerOptions
-        {
-            scenes = BuildOperations.FindAvailableScenesForBuild(),
-            locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.StandaloneOSX),
-            targetGroup = BuildTargetGroup.Standalone,
-            target = BuildTarget.StandaloneOSX,
-            options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
-        }, Array.Empty<IPreBuildTask>());
+        (
+            new BuildPlayerOptions
+            {
+                scenes = BuildOperations.FindAvailableScenesForBuild(),
+                locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.StandaloneOSX),
+                targetGroup = BuildTargetGroup.Standalone,
+                target = BuildTarget.StandaloneOSX,
+                options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
+            },
+            Array.Empty<IPreBuildTask>()
+        );
     }
 }
