@@ -1,11 +1,12 @@
 using System;
+using UnityBuildHub.Editor.Kernel.Interfaces;
 using UnityBuildHub.Editor.Utilities;
 using UnityEditor;
 
 // ReSharper disable InconsistentNaming
 
 // ReSharper disable once CheckNamespace
-namespace UnityBuildHub.Editor.Kernel
+namespace UnityBuildHub.Editor.Kernel.Configurations
 {
     internal static class BuilderConfigurationRegistry
     {

@@ -1,7 +1,8 @@
+using UnityBuildHub.Editor.Kernel.Interfaces;
 using UnityEditor;
 
 // ReSharper disable once CheckNamespace
-namespace UnityBuildHub.Editor.Kernel
+namespace UnityBuildHub.Editor.Kernel.Configurations
 {
     internal readonly struct BuilderConfiguration
     {
