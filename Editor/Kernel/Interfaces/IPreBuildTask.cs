@@ -1,9 +1,10 @@
-// ReSharper disable once CheckNamespace
+using UnityBuildHub.Editor.Kernel.Configurations;
 
+// ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Kernel.Interfaces
 {
     internal interface IPreBuildTask
     {
-        void Perform();
+        void Perform(BuildConfiguration buildConfiguration);
     }
 }

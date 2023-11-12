@@ -8,10 +8,10 @@ using UnityEditor;
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Kernel.Configurations
 {
-    internal static class BuilderConfigurationRegistry
+    internal static class BuildConfigurationRegistry
     {
         // ReSharper disable once IdentifierTypo
-        internal static readonly BuilderConfiguration MacOSIL2CPPBuilderConfiguration = new
+        internal static readonly BuildConfiguration MacOsil2CPPBuildConfiguration = new
         (
             new BuildPlayerOptions
             {
@@ -21,6 +21,7 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 target = BuildTarget.StandaloneOSX,
                 options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
             },
+            ScriptingImplementation.IL2CPP,
             Array.Empty<IPreBuildTask>()
         );
     }
