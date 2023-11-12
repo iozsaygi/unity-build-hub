@@ -1,5 +1,5 @@
-using System;
 using UnityBuildHub.Editor.Kernel.Interfaces;
+using UnityBuildHub.Editor.Kernel.Tasks;
 using UnityBuildHub.Editor.Utilities;
 using UnityEditor;
 
@@ -11,7 +11,7 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
     internal static class BuildConfigurationRegistry
     {
         // ReSharper disable once IdentifierTypo
-        internal static readonly BuildConfiguration MacOsil2CPPBuildConfiguration = new
+        internal static readonly BuildConfiguration MacOSX64IL2CPPBuildConfiguration = new
         (
             new BuildPlayerOptions
             {
@@ -22,7 +22,10 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
             },
             ScriptingImplementation.IL2CPP,
-            Array.Empty<IPreBuildTask>()
+            new IPreBuildTask[]
+            {
+                new MacOSSetupEditorSettings()
+            }
         );
     }
 }
