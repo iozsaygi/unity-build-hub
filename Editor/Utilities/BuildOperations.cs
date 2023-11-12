@@ -25,10 +25,10 @@ namespace UnityBuildHub.Editor.Utilities
                 PlayerSettings.SetScriptingBackend(buildTargetGroup, desiredScriptingImplementation);
         }
 
-        public static void FindAvailableScenesForBuild(out string[] scenePaths)
+        public static string[] FindAvailableScenesForBuild()
         {
             var sceneCountInBuildSettings = (byte)EditorBuildSettings.scenes.Length;
-            scenePaths = new string[sceneCountInBuildSettings];
+            var scenePaths = new string[sceneCountInBuildSettings];
 
             if (sceneCountInBuildSettings == 0)
             {
@@ -39,9 +39,11 @@ namespace UnityBuildHub.Editor.Utilities
 
             for (byte i = 0; i < scenePaths.Length; i++)
                 scenePaths[i] = EditorBuildSettings.scenes[i].path;
+
+            return scenePaths;
         }
 
-        public static void FindTargetBuildFilePath(BuildTarget buildTarget, out string targetBuildDirectory)
+        public static string FindTargetBuildFilePath(BuildTarget buildTarget)
         {
             var productName = Application.productName;
 
@@ -49,16 +51,13 @@ namespace UnityBuildHub.Editor.Utilities
             switch (buildTarget)
             {
                 case BuildTarget.StandaloneWindows64:
-                    targetBuildDirectory = $"Builds/{buildTarget.ToString()}/{productName}.exe";
-                    break;
+                    return $"Builds/{buildTarget.ToString()}/{productName}.exe";
                 case BuildTarget.StandaloneOSX:
-                    targetBuildDirectory = $"Builds/{buildTarget.ToString()}/{productName}.app";
-                    break;
+                    return $"Builds/{buildTarget.ToString()}/{productName}.app";
                 default:
-                    targetBuildDirectory = string.Empty;
                     Logging.Message("Failed to figure out executable name for current platform.",
                         LogCategory.Exception);
-                    break;
+                    return string.Empty;
             }
         }
     }

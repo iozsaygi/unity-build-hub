@@ -35,7 +35,7 @@ namespace UnityBuildHub.Tests.Editor.Utilities
         [Test]
         public void FindAvailableScenesForBuild()
         {
-            BuildOperations.FindAvailableScenesForBuild(out var scenePaths);
+            var scenePaths = BuildOperations.FindAvailableScenesForBuild();
 
             // Not returning 'null' from the API is enough for now.
             Assert.IsNotNull(scenePaths);
@@ -51,7 +51,7 @@ namespace UnityBuildHub.Tests.Editor.Utilities
             var expectedTargetFilePath = $"Builds/{buildTarget.ToString()}/{productName}.exe";
 #endif // UNITY_STANDALONE_WIN
 
-            BuildOperations.FindTargetBuildFilePath(buildTarget, out var targetBuildDirectory);
+            var targetBuildDirectory = BuildOperations.FindTargetBuildFilePath(buildTarget);
 
             Assert.AreEqual(expectedTargetFilePath, targetBuildDirectory);
         }
