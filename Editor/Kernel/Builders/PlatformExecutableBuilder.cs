@@ -23,7 +23,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
             foreach (var preBuildTask in buildConfiguration.PreBuildTasks)
             {
                 preBuildTask.Perform(buildConfiguration);
-                Logging.Message($"Performed pre build task: {preBuildTask.Name}", LogCategory.Trace);
+                Logging.Message($"Completed pre build task: {preBuildTask.Name}", LogCategory.Trace);
             }
         }
 
