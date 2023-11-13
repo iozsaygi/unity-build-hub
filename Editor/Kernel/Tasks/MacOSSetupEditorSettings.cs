@@ -8,6 +8,8 @@ namespace UnityBuildHub.Editor.Kernel.Tasks
 {
     internal sealed class MacOSSetupEditorSettings : IPreBuildTask
     {
+        public string Name => "MacOS Setup Editor Settings";
+
         public void Perform(BuildConfiguration buildConfiguration)
         {
             BuildOperations.EnsureActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
