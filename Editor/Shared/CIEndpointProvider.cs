@@ -19,7 +19,8 @@ namespace UnityBuildHub.Editor.Shared
                 new PlatformExecutableBuilder(BuildConfigurationRegistry.MacOSX64IL2CPPBuildConfiguration);
 
             platformExecutableBuilder.PerformPreBuildTasks();
-            platformExecutableBuilder.PerformUnityBuild();
+            platformExecutableBuilder.PerformCoreBuildOperation();
+            platformExecutableBuilder.PerformPostBuildTasks();
         }
     }
 }

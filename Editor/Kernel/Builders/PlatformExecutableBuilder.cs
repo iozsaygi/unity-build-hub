@@ -8,7 +8,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
     /// <summary>
     /// Builder that actually produces an executable file for target platform.
     /// </summary>
-    internal sealed class PlatformExecutableBuilder
+    internal sealed class PlatformExecutableBuilder : Builder
     {
         // ReSharper disable once InconsistentNaming
         private readonly BuildConfiguration buildConfiguration;
@@ -18,7 +18,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
             buildConfiguration = buildConfigurationToBind;
         }
 
-        public void PerformPreBuildTasks()
+        public override void PerformPreBuildTasks()
         {
             foreach (var preBuildTask in buildConfiguration.PreBuildTasks)
             {
@@ -27,9 +27,14 @@ namespace UnityBuildHub.Editor.Kernel.Builders
             }
         }
 
-        public void PerformUnityBuild()
+        public override void PerformCoreBuildOperation()
         {
             BuildPipeline.BuildPlayer(buildConfiguration.BuildPlayerOptions);
+        }
+
+        public override void PerformPostBuildTasks()
+        {
+            // TODO: Implement post build tasks.
         }
     }
 }
