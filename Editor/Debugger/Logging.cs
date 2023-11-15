@@ -16,18 +16,18 @@ namespace UnityBuildHub.Editor.Debugger
             switch (logCategory)
             {
                 case LogCategory.Critical:
-                    Debug.LogError(string.Concat("<color=red>", log, "</color>"));
+                    Debug.LogError(log);
                     break;
                 case LogCategory.Exception:
                     throw new Exception(log);
                 case LogCategory.Trace:
-                    Debug.Log(string.Concat("<color=white>", log, "</color>"));
+                    Debug.Log(log);
                     break;
                 case LogCategory.Unknown:
-                    Debug.Log(string.Concat("<color=gray>", log, "</color>"));
+                    Debug.Log(log);
                     break;
                 case LogCategory.Warning:
-                    Debug.LogWarning(string.Concat("<color=red>", log, "</color>"));
+                    Debug.LogWarning(log);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logCategory), logCategory, null);
