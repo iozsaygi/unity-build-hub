@@ -45,7 +45,9 @@ namespace UnityBuildHub.Tests.Editor.Utilities
         public void FindTargetBuildFilePath()
         {
             var productName = Application.productName;
-            var buildTarget = BuildTarget.NoTarget;
+
+            // ReSharper disable once JoinDeclarationAndInitializer
+            BuildTarget buildTarget;
 
             // ReSharper disable once RedundantAssignment
             var expectedTargetFilePath = string.Empty;
