@@ -45,10 +45,14 @@ namespace UnityBuildHub.Tests.Editor.Utilities
         public void FindTargetBuildFilePath()
         {
             var productName = Application.productName;
+            var buildTarget = BuildTarget.NoTarget;
+
+            // ReSharper disable once RedundantAssignment
+            var expectedTargetFilePath = string.Empty;
 
 #if UNITY_STANDALONE_WIN
-            const BuildTarget buildTarget = BuildTarget.StandaloneWindows64;
-            var expectedTargetFilePath = $"Builds/{buildTarget.ToString()}/{productName}.exe";
+            buildTarget = BuildTarget.StandaloneWindows64;
+            expectedTargetFilePath = $"Builds/{buildTarget.ToString()}/{productName}.exe";
 #endif // UNITY_STANDALONE_WIN
 
             var targetBuildDirectory = BuildOperations.FindTargetBuildFilePath(buildTarget);
