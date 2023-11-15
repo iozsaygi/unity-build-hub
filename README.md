@@ -6,5 +6,8 @@ There are no stable versions yet, MacOS build support will be released first.
 * [Unity](https://unity.com/) 2022.3 or higher
 * Build server running [Jenkins](https://www.jenkins.io/) or [TeamCity](https://www.jetbrains.com/teamcity/)
 
+## Installation
+* Add package from git URL ``https://github.com/iozsaygi/unity-build-hub.git``
+
 ## License
 [MIT License](https://github.com/iozsaygi/unity-build-hub/blob/main/LICENSE)
