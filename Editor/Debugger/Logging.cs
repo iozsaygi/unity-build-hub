@@ -10,7 +10,7 @@ namespace UnityBuildHub.Editor.Debugger
         {
             Debug.Assert(!string.IsNullOrEmpty(context));
 
-            var tag = string.Concat('[', "Unit Build Hub Logging", ']');
+            var tag = string.Concat('[', "Unit Build Hub", ']');
             var log = string.Concat(tag, ' ', context);
 
             switch (logCategory)
