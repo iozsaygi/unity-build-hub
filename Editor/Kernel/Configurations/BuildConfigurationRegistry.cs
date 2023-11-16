@@ -28,7 +28,6 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
             },
             new IPostBuildTask[]
             {
-                
             }
         );
     }
