@@ -20,6 +20,14 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
         public override void PerformPreBuildTasks()
         {
+            if (buildConfiguration.PreBuildTasks.Length == 0)
+            {
+                Logging.Message("There are no registered pre build tasks for current build configuration",
+                    LogCategory.Warning);
+
+                return;
+            }
+
             foreach (var preBuildTask in buildConfiguration.PreBuildTasks)
             {
                 Logging.Message($"Starting to perform pre build task: {preBuildTask.Name}", LogCategory.Trace);
