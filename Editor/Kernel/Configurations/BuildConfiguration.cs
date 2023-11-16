@@ -9,13 +9,16 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
         public readonly BuildPlayerOptions BuildPlayerOptions;
         public readonly ScriptingImplementation ScriptingImplementation;
         public readonly IPreBuildTask[] PreBuildTasks;
+        public readonly IPostBuildTask[] PostBuildTasks;
 
         public BuildConfiguration(BuildPlayerOptions buildPlayerOptions,
-            ScriptingImplementation scriptingImplementation, IPreBuildTask[] preBuildTasks)
+            ScriptingImplementation scriptingImplementation, IPreBuildTask[] preBuildTasks,
+            IPostBuildTask[] postBuildTasks)
         {
             BuildPlayerOptions = buildPlayerOptions;
             ScriptingImplementation = scriptingImplementation;
             PreBuildTasks = preBuildTasks;
+            PostBuildTasks = postBuildTasks;
         }
     }
 }

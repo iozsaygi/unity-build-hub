@@ -25,6 +25,10 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
             new IPreBuildTask[]
             {
                 new MacOSSetupEditorSettings()
+            },
+            new IPostBuildTask[]
+            {
+                
             }
         );
     }

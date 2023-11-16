@@ -43,7 +43,20 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
         public override void PerformPostBuildTasks()
         {
-            // TODO: Implement post build tasks.
+            if (buildConfiguration.PostBuildTasks.Length == 0)
+            {
+                Logging.Message("There are no registered post build tasks for current build configuration",
+                    LogCategory.Warning);
+
+                return;
+            }
+
+            foreach (var postBuildTask in buildConfiguration.PostBuildTasks)
+            {
+                Logging.Message($"Starting to perform post build task: {postBuildTask.Name}", LogCategory.Trace);
+                postBuildTask.Perform();
+                Logging.Message($"Completed post build task: {postBuildTask.Name}", LogCategory.Trace);
+            }
         }
     }
 }
