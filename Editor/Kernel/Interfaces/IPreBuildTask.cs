@@ -7,6 +7,6 @@ namespace UnityBuildHub.Editor.Kernel.Interfaces
     {
         string Name { get; }
 
-        void Perform(BuildConfiguration buildConfiguration);
+        void Perform(PlatformExecutableBuildConfiguration platformExecutableBuildConfiguration);
     }
 }

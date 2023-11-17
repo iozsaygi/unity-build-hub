@@ -16,7 +16,7 @@ namespace UnityBuildHub.Editor.Shared
         internal static void MacOSX64IL2CPP()
         {
             var platformExecutableBuilder =
-                new PlatformExecutableBuilder(BuildConfigurationRegistry.MacOSX64IL2CPPBuildConfiguration);
+                new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry.MacOSX64IL2CPPPlatformExecutableBuildConfiguration);
 
             platformExecutableBuilder.PerformPreBuildTasks();
             platformExecutableBuilder.PerformCoreBuildOperation();

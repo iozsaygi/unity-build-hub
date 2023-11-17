@@ -10,11 +10,11 @@ namespace UnityBuildHub.Editor.Kernel.Tasks
     {
         public string Name => "MacOS Setup Editor Settings";
 
-        public void Perform(BuildConfiguration buildConfiguration)
+        public void Perform(PlatformExecutableBuildConfiguration platformExecutableBuildConfiguration)
         {
             BuildOperations.EnsureActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
             BuildOperations.EnsureScriptingBackend(BuildTargetGroup.Standalone,
-                buildConfiguration.ScriptingImplementation);
+                platformExecutableBuildConfiguration.ScriptingImplementation);
 
             // TODO: Not sure about this one. Research needed.
             // TODO: Also an utility function to set architecture for specific platform in 'BuildOperations.cs' would be cool.
