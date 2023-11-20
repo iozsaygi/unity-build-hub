@@ -11,16 +11,16 @@ namespace UnityBuildHub.Editor.Kernel.Builders
     internal sealed class PlatformExecutableBuilder : Builder
     {
         // ReSharper disable once InconsistentNaming
-        private readonly PlatformExecutableBuildConfiguration _platformExecutableBuildConfiguration;
+        private readonly PlatformExecutableBuildConfiguration platformExecutableBuildConfiguration;
 
         public PlatformExecutableBuilder(PlatformExecutableBuildConfiguration platformExecutableBuildConfigurationToBind)
         {
-            _platformExecutableBuildConfiguration = platformExecutableBuildConfigurationToBind;
+            platformExecutableBuildConfiguration = platformExecutableBuildConfigurationToBind;
         }
 
         public override void PerformPreBuildTasks()
         {
-            if (_platformExecutableBuildConfiguration.PreBuildTasks.Length == 0)
+            if (platformExecutableBuildConfiguration.PreBuildTasks.Length == 0)
             {
                 Logging.Message("There are no registered pre build tasks for current build configuration",
                     LogCategory.Warning);
@@ -28,22 +28,22 @@ namespace UnityBuildHub.Editor.Kernel.Builders
                 return;
             }
 
-            foreach (var preBuildTask in _platformExecutableBuildConfiguration.PreBuildTasks)
+            foreach (var preBuildTask in platformExecutableBuildConfiguration.PreBuildTasks)
             {
                 Logging.Message($"Starting to perform pre build task: {preBuildTask.Name}", LogCategory.Trace);
-                preBuildTask.Perform(_platformExecutableBuildConfiguration);
+                preBuildTask.Perform(platformExecutableBuildConfiguration);
                 Logging.Message($"Completed pre build task: {preBuildTask.Name}", LogCategory.Trace);
             }
         }
 
         public override void PerformCoreBuildOperation()
         {
-            BuildPipeline.BuildPlayer(_platformExecutableBuildConfiguration.BuildPlayerOptions);
+            BuildPipeline.BuildPlayer(platformExecutableBuildConfiguration.BuildPlayerOptions);
         }
 
         public override void PerformPostBuildTasks()
         {
-            if (_platformExecutableBuildConfiguration.PostBuildTasks.Length == 0)
+            if (platformExecutableBuildConfiguration.PostBuildTasks.Length == 0)
             {
                 Logging.Message("There are no registered post build tasks for current build configuration",
                     LogCategory.Warning);
@@ -51,7 +51,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
                 return;
             }
 
-            foreach (var postBuildTask in _platformExecutableBuildConfiguration.PostBuildTasks)
+            foreach (var postBuildTask in platformExecutableBuildConfiguration.PostBuildTasks)
             {
                 Logging.Message($"Starting to perform post build task: {postBuildTask.Name}", LogCategory.Trace);
                 postBuildTask.Perform();
