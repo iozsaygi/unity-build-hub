@@ -16,11 +16,14 @@ namespace UnityBuildHub.Editor.Shared
         internal static void MacOSX64IL2CPP()
         {
             var platformExecutableBuilder =
-                new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry.MacOSX64IL2CPPPlatformExecutableBuildConfiguration);
+                new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry
+                    .MacOSX64IL2CPPPlatformExecutableBuildConfiguration);
 
             platformExecutableBuilder.PerformPreBuildTasks();
             platformExecutableBuilder.PerformCoreBuildOperation();
             platformExecutableBuilder.PerformPostBuildTasks();
+
+            // TODO: Find a good way to analyze Unity generated build report.
         }
     }
 }

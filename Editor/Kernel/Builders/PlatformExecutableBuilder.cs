@@ -1,6 +1,7 @@
 using UnityBuildHub.Editor.Debugger;
 using UnityBuildHub.Editor.Kernel.Configurations;
 using UnityEditor;
+using UnityEditor.Build.Reporting;
 
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Kernel.Builders
@@ -13,7 +14,8 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         // ReSharper disable once InconsistentNaming
         private readonly PlatformExecutableBuildConfiguration platformExecutableBuildConfiguration;
 
-        public PlatformExecutableBuilder(PlatformExecutableBuildConfiguration platformExecutableBuildConfigurationToBind)
+        public PlatformExecutableBuilder(
+            PlatformExecutableBuildConfiguration platformExecutableBuildConfigurationToBind)
         {
             platformExecutableBuildConfiguration = platformExecutableBuildConfigurationToBind;
         }
@@ -57,6 +59,12 @@ namespace UnityBuildHub.Editor.Kernel.Builders
                 postBuildTask.Perform();
                 Logging.Message($"Completed post build task: {postBuildTask.Name}", LogCategory.Trace);
             }
+        }
+
+        public void AnalyzeBuildReport(BuildReport buildReport)
+        {
+            if (buildReport.summary.totalErrors > 0)
+                EditorApplication.Exit(1);
         }
     }
 }
