@@ -6,7 +6,7 @@ namespace UnityBuildHub.Editor.Debugger
 {
     internal static class Logging
     {
-        internal static void Message(string context, LogCategory logCategory = LogCategory.Unknown)
+        internal static void Print(string context, LogCategory logCategory = LogCategory.Unknown)
         {
             Debug.Assert(!string.IsNullOrEmpty(context));
 

@@ -32,7 +32,7 @@ namespace UnityBuildHub.Editor.Utilities
 
             if (sceneCountInBuildSettings == 0)
             {
-                Logging.Message(
+                Logging.Print(
                     "There are no scenes added to build, make sure to add scenes before invoking new build.",
                     LogCategory.Exception);
             }
@@ -55,7 +55,7 @@ namespace UnityBuildHub.Editor.Utilities
                 case BuildTarget.StandaloneOSX:
                     return $"Builds/{buildTarget.ToString()}/{productName}.app";
                 default:
-                    Logging.Message("Failed to figure out executable name for current platform.",
+                    Logging.Print("Failed to figure out executable name for current platform.",
                         LogCategory.Exception);
                     return string.Empty;
             }

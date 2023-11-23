@@ -24,7 +24,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             if (platformExecutableBuildConfiguration.PreBuildTasks.Length == 0)
             {
-                Logging.Message("There are no registered pre build tasks for current build configuration",
+                Logging.Print("There are no registered pre build tasks for current build configuration",
                     LogCategory.Warning);
 
                 return;
@@ -32,9 +32,9 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
             foreach (var preBuildTask in platformExecutableBuildConfiguration.PreBuildTasks)
             {
-                Logging.Message($"Starting to perform pre build task: {preBuildTask.Name}", LogCategory.Trace);
+                Logging.Print($"Starting to perform pre build task: {preBuildTask.Name}", LogCategory.Trace);
                 preBuildTask.Perform(platformExecutableBuildConfiguration);
-                Logging.Message($"Completed pre build task: {preBuildTask.Name}", LogCategory.Trace);
+                Logging.Print($"Completed pre build task: {preBuildTask.Name}", LogCategory.Trace);
             }
         }
 
@@ -47,7 +47,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             if (platformExecutableBuildConfiguration.PostBuildTasks.Length == 0)
             {
-                Logging.Message("There are no registered post build tasks for current build configuration",
+                Logging.Print("There are no registered post build tasks for current build configuration",
                     LogCategory.Warning);
 
                 return;
@@ -55,9 +55,9 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
             foreach (var postBuildTask in platformExecutableBuildConfiguration.PostBuildTasks)
             {
-                Logging.Message($"Starting to perform post build task: {postBuildTask.Name}", LogCategory.Trace);
+                Logging.Print($"Starting to perform post build task: {postBuildTask.Name}", LogCategory.Trace);
                 postBuildTask.Perform();
-                Logging.Message($"Completed post build task: {postBuildTask.Name}", LogCategory.Trace);
+                Logging.Print($"Completed post build task: {postBuildTask.Name}", LogCategory.Trace);
             }
         }
 
