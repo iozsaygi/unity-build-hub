@@ -38,9 +38,15 @@ namespace UnityBuildHub.Editor.Kernel.Builders
             }
         }
 
-        public override void PerformCoreBuildOperation()
+        public override BuildReport PerformCoreBuildOperation()
         {
-            BuildPipeline.BuildPlayer(platformExecutableBuildConfiguration.BuildPlayerOptions);
+            return BuildPipeline.BuildPlayer(platformExecutableBuildConfiguration.BuildPlayerOptions);
+        }
+
+        public override void AnalyzeBuildReport(BuildReport buildReport)
+        {
+            if (buildReport.summary.totalErrors > 0)
+                EditorApplication.Exit(1);
         }
 
         public override void PerformPostBuildTasks()
@@ -59,12 +65,6 @@ namespace UnityBuildHub.Editor.Kernel.Builders
                 postBuildTask.Perform();
                 Logging.Print($"Completed post build task: {postBuildTask.Name}", LogCategory.Trace);
             }
-        }
-
-        public void AnalyzeBuildReport(BuildReport buildReport)
-        {
-            if (buildReport.summary.totalErrors > 0)
-                EditorApplication.Exit(1);
         }
     }
 }

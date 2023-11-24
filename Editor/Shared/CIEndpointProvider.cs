@@ -10,9 +10,6 @@ namespace UnityBuildHub.Editor.Shared
     // ReSharper disable once InconsistentNaming
     internal static class CIEndpointProvider
     {
-        // TODO: See if we need to declare static functions as 'public' instead of 'internal'.
-        // TODO: Figure out how we can write unit tests for this.
-
         internal static void MacOSX64IL2CPP()
         {
             var platformExecutableBuilder =
@@ -20,10 +17,8 @@ namespace UnityBuildHub.Editor.Shared
                     .MacOSX64IL2CPPPlatformExecutableBuildConfiguration);
 
             platformExecutableBuilder.PerformPreBuildTasks();
-            platformExecutableBuilder.PerformCoreBuildOperation();
+            platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCoreBuildOperation());
             platformExecutableBuilder.PerformPostBuildTasks();
-
-            // TODO: Find a good way to analyze Unity generated build report.
         }
     }
 }
