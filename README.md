@@ -6,7 +6,7 @@ Unity Build Hub is a DevOps and continuous integration utility for the Unity eng
 * Build server running Jenkins or TeamCity
 
 ## Installation
-* Add package from git URL ``https://github.com/iozsaygi/unity-build-hub.git`` or download the latest release
+* Add package from git URL ``https://github.com/iozsaygi/unity-build-hub.git`` or download the [latest release](https://github.com/iozsaygi/unity-build-hub/releases/latest)
 
 ## Changelog
 Please see [CHANGELOG](https://github.com/iozsaygi/unity-build-hub/blob/main/CHANGELOG.md) for detailed information.
