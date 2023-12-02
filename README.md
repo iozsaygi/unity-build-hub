@@ -8,5 +8,8 @@ Unity Build Hub is a DevOps and continuous integration utility for the Unity eng
 ## Installation
 * Add package from git URL ``https://github.com/iozsaygi/unity-build-hub.git`` or download the latest release
 
+## Changelog
+Please see [CHANGELOG.md](https://github.com/iozsaygi/unity-build-hub/blob/main/CHANGELOG.md) for detailed information.
+
 ## License
 [MIT License](https://github.com/iozsaygi/unity-build-hub/blob/main/LICENSE)
