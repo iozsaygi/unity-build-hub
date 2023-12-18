@@ -25,6 +25,12 @@ namespace UnityBuildHub.Editor.Utilities
                 PlayerSettings.SetScriptingBackend(buildTargetGroup, desiredScriptingImplementation);
         }
 
+        public static void EnsureArchitectureForBuildTargetGroup(BuildTargetGroup buildTargetGroup, int architecture)
+        {
+            if (PlayerSettings.GetArchitecture(buildTargetGroup) != architecture)
+                PlayerSettings.SetArchitecture(buildTargetGroup, architecture);
+        }
+
         public static string[] FindAvailableScenesForBuild()
         {
             var sceneCountInBuildSettings = (byte)EditorBuildSettings.scenes.Length;

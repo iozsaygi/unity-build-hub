@@ -15,11 +15,8 @@ namespace UnityBuildHub.Editor.Kernel.Tasks
             BuildOperations.EnsureActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
             BuildOperations.EnsureScriptingBackend(BuildTargetGroup.Standalone,
                 platformExecutableBuildConfiguration.ScriptingImplementation);
-
-            // TODO: Not sure about this one. Research needed.
-            // TODO: Also an utility function to set architecture for specific platform in 'BuildOperations.cs' would be cool.
-            // 0 - None, 1 - ARM64, 2 - Universal
-            PlayerSettings.SetArchitecture(BuildTargetGroup.Standalone, 1);
+            
+            BuildOperations.EnsureArchitectureForBuildTargetGroup(BuildTargetGroup.Standalone, 1);
         }
     }
 }

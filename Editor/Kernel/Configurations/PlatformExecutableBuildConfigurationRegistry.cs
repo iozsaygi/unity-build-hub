@@ -11,24 +11,25 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
     internal static class PlatformExecutableBuildConfigurationRegistry
     {
         // ReSharper disable once IdentifierTypo
-        internal static readonly PlatformExecutableBuildConfiguration MacOSX64IL2CPPPlatformExecutableBuildConfiguration = new
-        (
-            new BuildPlayerOptions
-            {
-                scenes = BuildOperations.FindAvailableScenesForBuild(),
-                locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.StandaloneOSX),
-                targetGroup = BuildTargetGroup.Standalone,
-                target = BuildTarget.StandaloneOSX,
-                options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
-            },
-            ScriptingImplementation.IL2CPP,
-            new IPreBuildTask[]
-            {
-                new MacOSSetupEditorSettings()
-            },
-            new IPostBuildTask[]
-            {
-            }
-        );
+        internal static readonly PlatformExecutableBuildConfiguration
+            MacOSX64IL2CPPPlatformExecutableBuildConfiguration = new
+            (
+                new BuildPlayerOptions
+                {
+                    scenes = BuildOperations.FindAvailableScenesForBuild(),
+                    locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.StandaloneOSX),
+                    targetGroup = BuildTargetGroup.Standalone,
+                    target = BuildTarget.StandaloneOSX,
+                    options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
+                },
+                ScriptingImplementation.IL2CPP,
+                new IPreBuildTask[]
+                {
+                    new MacOSSetupEditorSettings()
+                },
+                new IPostBuildTask[]
+                {
+                }
+            );
     }
 }

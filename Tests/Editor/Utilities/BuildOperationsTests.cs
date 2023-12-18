@@ -33,6 +33,14 @@ namespace UnityBuildHub.Tests.Editor.Utilities
         }
 
         [Test]
+        public void EnsureArchitectureForBuildTargetGroup()
+        {
+            const BuildTargetGroup buildTargetGroup = BuildTargetGroup.Standalone;
+            BuildOperations.EnsureArchitectureForBuildTargetGroup(buildTargetGroup, 1);
+            Assert.AreEqual(1, PlayerSettings.GetArchitecture(buildTargetGroup));
+        }
+
+        [Test]
         public void FindAvailableScenesForBuild()
         {
             var scenePaths = BuildOperations.FindAvailableScenesForBuild();
