@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityBuildHub.Editor.Debugger;
 using UnityBuildHub.Editor.Kernel.Configurations;
 using UnityEditor;
@@ -24,18 +25,30 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             if (platformExecutableBuildConfiguration.PreBuildTasks.Length == 0)
             {
-                Logging.Print("There are no registered pre build tasks for current build configuration",
+                Logging.Print("There are no registered pre-build tasks for current build configuration",
                     LogCategory.Warning);
 
                 return;
             }
 
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             foreach (var preBuildTask in platformExecutableBuildConfiguration.PreBuildTasks)
             {
-                Logging.Print($"Starting to perform pre build task: {preBuildTask.Name}", LogCategory.Trace);
+                Logging.Print($"Starting to perform pre-build task '{preBuildTask.Name}'", LogCategory.Trace);
+
+                stopwatch.Restart();
                 preBuildTask.Perform(platformExecutableBuildConfiguration);
-                Logging.Print($"Completed pre build task: {preBuildTask.Name}", LogCategory.Trace);
+                stopwatch.Stop();
+
+                Logging.Print(
+                    $"Completed pre-build task '{preBuildTask.Name}' in {stopwatch.Elapsed.TotalSeconds:F2} seconds",
+                    LogCategory.Trace);
             }
+
+            Logging.Print($"{stopwatch.Elapsed.TotalSeconds:F2} seconds spent on pre-build tasks",
+                LogCategory.Trace);
         }
 
         public override BuildReport PerformCoreBuildOperation()
@@ -53,18 +66,30 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             if (platformExecutableBuildConfiguration.PostBuildTasks.Length == 0)
             {
-                Logging.Print("There are no registered post build tasks for current build configuration",
+                Logging.Print("There are no registered post-build tasks for current build configuration",
                     LogCategory.Warning);
 
                 return;
             }
 
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             foreach (var postBuildTask in platformExecutableBuildConfiguration.PostBuildTasks)
             {
-                Logging.Print($"Starting to perform post build task: {postBuildTask.Name}", LogCategory.Trace);
+                Logging.Print($"Starting to perform post-build task '{postBuildTask.Name}'", LogCategory.Trace);
+
+                stopwatch.Restart();
                 postBuildTask.Perform();
-                Logging.Print($"Completed post build task: {postBuildTask.Name}", LogCategory.Trace);
+                stopwatch.Stop();
+
+                Logging.Print(
+                    $"Completed post-build task '{postBuildTask.Name}' in {stopwatch.Elapsed.TotalSeconds:F2} seconds",
+                    LogCategory.Trace);
             }
+
+            Logging.Print($"{stopwatch.Elapsed.TotalSeconds:F2} seconds spent on post-build tasks",
+                LogCategory.Trace);
         }
     }
 }
