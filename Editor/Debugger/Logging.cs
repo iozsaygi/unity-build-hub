@@ -10,7 +10,8 @@ namespace UnityBuildHub.Editor.Debugger
         {
             Debug.Assert(!string.IsNullOrEmpty(context));
 
-            var tag = string.Concat('[', "Unit Build Hub", ']');
+            var tag = string.Concat('[', "Unit Build Hub", ']', ' ', '[', $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}", ']',
+                ' ');
             var log = string.Concat(tag, ' ', context);
 
             switch (logCategory)
