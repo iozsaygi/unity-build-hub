@@ -15,7 +15,7 @@ namespace UnityBuildHub.Editor.Kernel.Tasks
             BuildOperations.EnsureActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
             BuildOperations.EnsureScriptingBackend(BuildTargetGroup.Standalone,
                 platformExecutableBuildConfiguration.ScriptingImplementation);
-            
+
             BuildOperations.EnsureArchitectureForBuildTargetGroup(BuildTargetGroup.Standalone, 1);
         }
     }
