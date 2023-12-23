@@ -8,6 +8,9 @@ Unity Build Hub is a DevOps and continuous integration utility for the Unity eng
 ## Installation
 * Add package from git URL ``https://github.com/iozsaygi/unity-build-hub.git`` or download the [latest release](https://github.com/iozsaygi/unity-build-hub/releases/latest)
 
+## Jenkins configuration
+Assuming the Jenkins instance Unity Build Hub is working on already has the [Unity3d](https://plugins.jenkins.io/unity3d-plugin/) plugin installed, this is how Unity Build Hub can be linked to the Jenkins item that produces builds by using the Unity engine.
+
 ## Changelog
 Please see [CHANGELOG](https://github.com/iozsaygi/unity-build-hub/blob/main/CHANGELOG.md) for detailed information.
 
