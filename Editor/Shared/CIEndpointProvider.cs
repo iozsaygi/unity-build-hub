@@ -10,6 +10,16 @@ namespace UnityBuildHub.Editor.Shared
     // ReSharper disable once InconsistentNaming
     internal static class CIEndpointProvider
     {
+        internal static void WindowsX64Mono()
+        {
+            var platformExecutableBuilder = new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry
+                .WindowsX64MonoPlatformExecutableBuildConfiguration);
+
+            platformExecutableBuilder.PerformPreBuildTasks();
+            platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCoreBuildOperation());
+            platformExecutableBuilder.PerformPostBuildTasks();
+        }
+
         internal static void MacOSX64IL2CPP()
         {
             var platformExecutableBuilder =
