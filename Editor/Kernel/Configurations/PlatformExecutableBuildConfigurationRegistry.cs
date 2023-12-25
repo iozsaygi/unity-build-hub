@@ -25,6 +25,7 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 ScriptingImplementation.Mono2x,
                 new IPreBuildTask[]
                 {
+                    new WindowsSetupEditorSettings()
                 },
                 new IPostBuildTask[]
                 {
