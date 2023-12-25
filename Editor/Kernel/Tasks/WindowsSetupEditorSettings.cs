@@ -16,7 +16,8 @@ namespace UnityBuildHub.Editor.Kernel.Tasks
             BuildOperations.EnsureScriptingBackend(BuildTargetGroup.Standalone,
                 platformExecutableBuildConfiguration.ScriptingImplementation);
 
-            BuildOperations.EnsureArchitectureForBuildTargetGroup(BuildTargetGroup.Standalone, 0);
+            // TODO: Figure out if this is needed for Windows x64 builds.
+            // BuildOperations.EnsureArchitectureForBuildTargetGroup(BuildTargetGroup.Standalone, 0);
         }
     }
 }
