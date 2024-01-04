@@ -20,6 +20,16 @@ namespace UnityBuildHub.Editor.Shared
             platformExecutableBuilder.PerformPostBuildTasks();
         }
 
+        internal static void WindowsX64IL2CPP()
+        {
+            var platformExecutableBuilder = new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry
+                .WindowsX64IL2CPPPlatformExecutableBuildConfiguration);
+
+            platformExecutableBuilder.PerformPreBuildTasks();
+            platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCoreBuildOperation());
+            platformExecutableBuilder.PerformPostBuildTasks();
+        }
+
         internal static void MacOSX64IL2CPP()
         {
             var platformExecutableBuilder =

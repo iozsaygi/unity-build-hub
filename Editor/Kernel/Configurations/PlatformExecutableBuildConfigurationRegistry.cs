@@ -32,6 +32,28 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 }
             );
 
+        // Windows x64 IL2CPP configuration.
+        internal static readonly PlatformExecutableBuildConfiguration
+            WindowsX64IL2CPPPlatformExecutableBuildConfiguration = new
+            (
+                new BuildPlayerOptions()
+                {
+                    scenes = BuildOperations.FindAvailableScenesForBuild(),
+                    locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.StandaloneWindows64),
+                    targetGroup = BuildTargetGroup.Standalone,
+                    target = BuildTarget.StandaloneWindows64,
+                    options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
+                },
+                ScriptingImplementation.IL2CPP,
+                new IPreBuildTask[]
+                {
+                    new WindowsSetupEditorSettings()
+                },
+                new IPostBuildTask[]
+                {
+                }
+            );
+
         // MacOS x64 IL2CPP configuration.
         internal static readonly PlatformExecutableBuildConfiguration
             MacOSX64IL2CPPPlatformExecutableBuildConfiguration = new
