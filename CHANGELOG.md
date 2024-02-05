@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.2] - 2024-02-05
+### Added
+- Windows x64 Mono build support
+- Windows x64 IL2CPP build support
+
 ## [1.0.1] - 2023-12-23
 ### Added
 - Timestamps for builder logs
