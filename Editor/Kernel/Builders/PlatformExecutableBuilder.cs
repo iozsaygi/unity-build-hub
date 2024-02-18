@@ -3,6 +3,7 @@ using UnityBuildHub.Editor.Debugger;
 using UnityBuildHub.Editor.Kernel.Configurations;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
+using UnityEngine;
 
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Kernel.Builders
@@ -58,6 +59,29 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
         public override void AnalyzeBuildReport(BuildReport buildReport)
         {
+            // Only analyze if build is failed or cancelled.
+            if (buildReport.summary.result.Equals(BuildResult.Succeeded))
+                return;
+
+            foreach (var step in buildReport.steps)
+            {
+                Logging.Print($"Starting to analyze {step.name} build step.", LogCategory.Trace);
+
+                foreach (var message in step.messages)
+                {
+                    if (message.type.Equals(LogType.Error) || message.type.Equals(LogType.Warning))
+                    {
+                        Logging.Print($"{message.type} found, the full log is: {message.content}",
+                            LogCategory.Critical);
+                    }
+                }
+
+                Logging.Print($"{step.name} took {step.duration.Seconds} seconds to complete.", LogCategory.Trace);
+            }
+
+            // Terminate the editor application if required.
+            // TODO: Think about binding this behaviour to build configuration.
+            // TODO: Also consider applying same behaviour for warnings as well.
             if (buildReport.summary.totalErrors > 0)
                 EditorApplication.Exit(1);
         }
