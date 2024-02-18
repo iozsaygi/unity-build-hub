@@ -19,8 +19,6 @@ namespace UnityBuildHub.Editor.Debugger
                 case LogCategory.Critical:
                     Debug.LogError(log);
                     break;
-                case LogCategory.Exception:
-                    throw new Exception(log);
                 case LogCategory.Trace:
                     Debug.Log(log);
                     break;

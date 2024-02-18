@@ -40,7 +40,7 @@ namespace UnityBuildHub.Editor.Utilities
             {
                 Logging.Print(
                     "There are no scenes added to build, make sure to add scenes before invoking new build.",
-                    LogCategory.Exception);
+                    LogCategory.Critical);
             }
 
             for (byte i = 0; i < scenePaths.Length; i++)
@@ -62,7 +62,7 @@ namespace UnityBuildHub.Editor.Utilities
                     return $"Builds/{buildTarget.ToString()}/{productName}.app";
                 default:
                     Logging.Print("Failed to figure out executable name for current platform.",
-                        LogCategory.Exception);
+                        LogCategory.Critical);
                     return string.Empty;
             }
         }
