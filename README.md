@@ -9,6 +9,8 @@ Unity Build Hub is a DevOps and continuous integration utility for the Unity eng
 * MacOS x64 IL2CPP
 * Windows x64 Mono
 * Windows x64 IL2CPP
+* Android Mono
+* Android IL2CPP
 
 ## Installation
 * Add package from git URL ``https://github.com/iozsaygi/unity-build-hub.git`` or download the [latest release](https://github.com/iozsaygi/unity-build-hub/releases/latest)
