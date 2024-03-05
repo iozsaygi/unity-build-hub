@@ -4,7 +4,7 @@ using UnityEditor;
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Kernel.Configurations
 {
-    internal readonly struct PlatformExecutableBuildConfiguration
+    public readonly struct PlatformExecutableBuildConfiguration
     {
         public readonly BuildPlayerOptions BuildPlayerOptions;
         public readonly ScriptingImplementation ScriptingImplementation;

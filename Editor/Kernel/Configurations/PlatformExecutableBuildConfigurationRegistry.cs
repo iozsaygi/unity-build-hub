@@ -75,5 +75,50 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 {
                 }
             );
+
+        // Android Mono (.apk) configuration.
+        internal static readonly PlatformExecutableBuildConfiguration
+            AndroidMonoPlatformExecutableBuildConfiguration = new
+            (
+                new BuildPlayerOptions
+                {
+                    scenes = BuildOperations.FindAvailableScenesForBuild(),
+                    locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.Android),
+                    targetGroup = BuildTargetGroup.Android,
+                    target = BuildTarget.Android,
+                    options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
+                },
+                ScriptingImplementation.Mono2x,
+                new IPreBuildTask[]
+                {
+                    new AndroidSetupEditorSettings()
+                },
+                new IPostBuildTask[]
+                {
+                }
+            );
+
+        // Android IL2CPP (.apk) configuration.
+        internal static readonly PlatformExecutableBuildConfiguration
+            // ReSharper disable once IdentifierTypo
+            AndroidIL2CPPPlatformExecutableBuildConfiguration = new
+            (
+                new BuildPlayerOptions
+                {
+                    scenes = BuildOperations.FindAvailableScenesForBuild(),
+                    locationPathName = BuildOperations.FindTargetBuildFilePath(BuildTarget.Android),
+                    targetGroup = BuildTargetGroup.Android,
+                    target = BuildTarget.Android,
+                    options = BuildOptions.StrictMode | BuildOptions.DetailedBuildReport
+                },
+                ScriptingImplementation.IL2CPP,
+                new IPreBuildTask[]
+                {
+                    new AndroidSetupEditorSettings()
+                },
+                new IPostBuildTask[]
+                {
+                }
+            );
     }
 }

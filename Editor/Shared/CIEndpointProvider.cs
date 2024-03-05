@@ -40,5 +40,25 @@ namespace UnityBuildHub.Editor.Shared
             platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCoreBuildOperation());
             platformExecutableBuilder.PerformPostBuildTasks();
         }
+
+        internal static void AndroidMono()
+        {
+            var platformExecutableBuilder = new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry
+                .AndroidMonoPlatformExecutableBuildConfiguration);
+
+            platformExecutableBuilder.PerformPreBuildTasks();
+            platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCoreBuildOperation());
+            platformExecutableBuilder.PerformPostBuildTasks();
+        }
+
+        internal static void AndroidIL2CPP()
+        {
+            var platformExecutableBuilder = new PlatformExecutableBuilder(PlatformExecutableBuildConfigurationRegistry
+                .AndroidIL2CPPPlatformExecutableBuildConfiguration);
+
+            platformExecutableBuilder.PerformPreBuildTasks();
+            platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCoreBuildOperation());
+            platformExecutableBuilder.PerformPostBuildTasks();
+        }
     }
 }

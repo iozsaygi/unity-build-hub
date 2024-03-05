@@ -60,6 +60,10 @@ namespace UnityBuildHub.Editor.Utilities
                     return $"Builds/{buildTarget.ToString()}/{productName}.exe";
                 case BuildTarget.StandaloneOSX:
                     return $"Builds/{buildTarget.ToString()}/{productName}.app";
+                case BuildTarget.Android:
+                    return EditorUserBuildSettings.buildAppBundle
+                        ? $"Builds/{buildTarget.ToString()}/{productName}.aab"
+                        : $"Builds/{buildTarget.ToString()}/{productName}.apk";
                 default:
                     Logging.Print("Failed to figure out executable name for current platform.",
                         LogCategory.Critical);

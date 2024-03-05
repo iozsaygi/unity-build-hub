@@ -25,5 +25,17 @@ namespace UnityBuildHub.Editor.Shared
         {
             CIEndpointProvider.MacOSX64IL2CPP();
         }
+
+        [MenuItem("Unity Build Hub/Build/Android Mono")]
+        internal static void ExecuteAndroidMonoBuild()
+        {
+            CIEndpointProvider.AndroidMono();
+        }
+
+        [MenuItem("Unity Build Hub/Build/Android IL2CPP")]
+        internal static void ExecuteAndroidIL2CPPBuild()
+        {
+            CIEndpointProvider.AndroidIL2CPP();
+        }
     }
 }
