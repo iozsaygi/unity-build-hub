@@ -76,7 +76,7 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 }
             );
 
-        // Android Mono (.apk) configuration.
+        // Android Mono configuration.
         internal static readonly PlatformExecutableBuildConfiguration
             AndroidMonoPlatformExecutableBuildConfiguration = new
             (
@@ -91,14 +91,15 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 ScriptingImplementation.Mono2x,
                 new IPreBuildTask[]
                 {
-                    new AndroidSetupEditorSettings()
+                    new AndroidSetupEditorSettings(),
+                    new AndroidSignKeystore()
                 },
                 new IPostBuildTask[]
                 {
                 }
             );
 
-        // Android IL2CPP (.apk) configuration.
+        // Android IL2CPP configuration.
         internal static readonly PlatformExecutableBuildConfiguration
             // ReSharper disable once IdentifierTypo
             AndroidIL2CPPPlatformExecutableBuildConfiguration = new
@@ -114,7 +115,8 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 ScriptingImplementation.IL2CPP,
                 new IPreBuildTask[]
                 {
-                    new AndroidSetupEditorSettings()
+                    new AndroidSetupEditorSettings(),
+                    new AndroidSignKeystore()
                 },
                 new IPostBuildTask[]
                 {
