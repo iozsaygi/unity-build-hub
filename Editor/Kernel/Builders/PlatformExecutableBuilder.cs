@@ -65,7 +65,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
             foreach (var step in buildReport.steps)
             {
-                Logging.Print($"Starting to analyze {step.name} build step.", LogCategory.Trace);
+                Logging.Print($"Starting to analyze '{step.name}' build step.", LogCategory.Trace);
 
                 foreach (var message in step.messages)
                 {
@@ -76,7 +76,7 @@ namespace UnityBuildHub.Editor.Kernel.Builders
                     }
                 }
 
-                Logging.Print($"{step.name} took {step.duration.Seconds} seconds to complete.", LogCategory.Trace);
+                Logging.Print($"'{step.name}' took {step.duration.Seconds} seconds to complete.", LogCategory.Trace);
             }
 
             // Terminate the editor application if required.
