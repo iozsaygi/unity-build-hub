@@ -8,7 +8,11 @@
 - Android IL2CPP build support
 - Better post-build analyzer
 
-### Added
+### Fixed
+
+- Misleading CI endpoint providers
+
+### Removed
 
 - 'Exception' log category
 
