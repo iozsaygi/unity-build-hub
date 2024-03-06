@@ -8,6 +8,10 @@
 - Android IL2CPP build support
 - Better post-build analyzer
 
+### Added
+
+- 'Exception' log category
+
 ## [1.0.2] - 2024-02-05
 
 ### Added
