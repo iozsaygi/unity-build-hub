@@ -34,7 +34,8 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 },
                 new IPostBuildTask[]
                 {
-                }
+                },
+                true
             );
 
         // Windows x64 IL2CPP configuration.
@@ -56,7 +57,8 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 },
                 new IPostBuildTask[]
                 {
-                }
+                },
+                true
             );
 
         // MacOS x64 IL2CPP configuration.
@@ -78,7 +80,8 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 },
                 new IPostBuildTask[]
                 {
-                }
+                },
+                true
             );
 
         // Android Mono configuration.
@@ -101,7 +104,8 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 },
                 new IPostBuildTask[]
                 {
-                }
+                },
+                true
             );
 
         // Android IL2CPP configuration.
@@ -125,7 +129,8 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
                 },
                 new IPostBuildTask[]
                 {
-                }
+                },
+                true
             );
     }
 }
