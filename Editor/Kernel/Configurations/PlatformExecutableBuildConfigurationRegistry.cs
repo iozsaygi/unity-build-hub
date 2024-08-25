@@ -8,6 +8,11 @@ using UnityEditor;
 // ReSharper disable once CheckNamespace
 namespace UnityBuildHub.Editor.Kernel.Configurations
 {
+    /// <summary>
+    /// Baked configuration registry for faster usage.
+    /// Provides several build configurations for following platforms:
+    /// Windows, macOS and Android.
+    /// </summary>
     internal static class PlatformExecutableBuildConfigurationRegistry
     {
         // Windows x64 Mono configuration.
