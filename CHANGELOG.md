@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.4] - 2024-08-25
+
+### Added
+
+- Support to fail builds whenever warning detected in the Unity generated build log (Optional)
+
 ## [1.0.3] - 2024-03-06
 
 ### Added
