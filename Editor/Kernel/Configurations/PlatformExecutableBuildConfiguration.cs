@@ -18,14 +18,18 @@ namespace UnityBuildHub.Editor.Kernel.Configurations
         // Set of tasks that are going to be executed after actual Unity build completes.
         public readonly IPostBuildTask[] PostBuildTasks;
 
+        // Should builds fail if any warning detected in the Unity generated build log?
+        public readonly bool FailBuildForAnyWarning;
+
         public PlatformExecutableBuildConfiguration(BuildPlayerOptions buildPlayerOptions,
             ScriptingImplementation scriptingImplementation, IPreBuildTask[] preBuildTasks,
-            IPostBuildTask[] postBuildTasks)
+            IPostBuildTask[] postBuildTasks, bool failBuildForAnyWarning)
         {
             BuildPlayerOptions = buildPlayerOptions;
             ScriptingImplementation = scriptingImplementation;
             PreBuildTasks = preBuildTasks;
             PostBuildTasks = postBuildTasks;
+            FailBuildForAnyWarning = failBuildForAnyWarning;
         }
     }
 }

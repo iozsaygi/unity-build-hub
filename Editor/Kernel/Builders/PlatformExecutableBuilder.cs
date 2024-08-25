@@ -59,10 +59,6 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
         public override void AnalyzeBuildReport(BuildReport buildReport)
         {
-            // Only analyze if build is failed or cancelled.
-            if (buildReport.summary.result.Equals(BuildResult.Succeeded))
-                return;
-
             foreach (var step in buildReport.steps)
             {
                 Logging.Print($"Starting to analyze '{step.name}' build step.", LogCategory.Trace);
@@ -79,11 +75,14 @@ namespace UnityBuildHub.Editor.Kernel.Builders
                 Logging.Print($"'{step.name}' took {step.duration.Seconds} seconds to complete.", LogCategory.Trace);
             }
 
-            // Terminate the editor application if required.
-            // TODO: Think about binding this behaviour to build configuration.
-            // TODO: Also consider applying same behaviour for warnings as well.
-            if (buildReport.summary.totalErrors > 0)
+            // Terminate the build by looking at two separate condition:
+            // 1. If there are errors in the build -> terminate
+            // 2. If build configuration allows to fail builds for any warnings detected and there are warnings in the build log -> terminate
+            if (buildReport.summary.totalErrors > 0 || (platformExecutableBuildConfiguration.FailBuildForAnyWarning &&
+                                                        buildReport.summary.totalWarnings > 0))
+            {
                 EditorApplication.Exit(1);
+            }
         }
 
         public override void PerformPostBuildTasks()
