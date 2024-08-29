@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5] - 2024-08-25
+
+### Refactor
+
+- Complicated internal logging APIs refactored to simpler one
+
 ## [1.0.4] - 2024-08-25
 
 ### Added
