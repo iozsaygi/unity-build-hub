@@ -1,6 +1,6 @@
 {
   "name": "com.iozsaygi.unity-build-hub",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "displayName": "Unity Build Hub",
   "description": "Unity Build Hub is a DevOps utility to ease the build process for several platforms.",
   "unity": "2022.3",
