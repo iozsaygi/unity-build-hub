@@ -38,9 +38,8 @@ namespace UnityBuildHub.Editor.Utilities
 
             if (sceneCountInBuildSettings == 0)
             {
-                Logging.Print(
-                    "There are no scenes added to build, make sure to add scenes before invoking new build.",
-                    LogCategory.Critical);
+                // TODO: Consider throwing exception here, but Unity also breaks down the builds if no available scene found.
+                Log.Error("There are no scenes added to build, make sure to add scenes before invoking new build.");
             }
 
             for (byte i = 0; i < scenePaths.Length; i++)
@@ -65,8 +64,7 @@ namespace UnityBuildHub.Editor.Utilities
                         ? $"Builds/{buildTarget.ToString()}/{productName}.aab"
                         : $"Builds/{buildTarget.ToString()}/{productName}.apk";
                 default:
-                    Logging.Print("Failed to figure out executable name for current platform.",
-                        LogCategory.Critical);
+                    Log.Error("Failed to figure out executable name for current platform.");
                     return string.Empty;
             }
         }

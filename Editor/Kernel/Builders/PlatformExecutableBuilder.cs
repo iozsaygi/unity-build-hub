@@ -26,9 +26,8 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             if (platformExecutableBuildConfiguration.PreBuildTasks.Length == 0)
             {
-                Logging.Print("There are no registered pre-build tasks for current build configuration",
-                    LogCategory.Warning);
-
+                // Not sure if this should be 'Warning' but it is also not fit for 'Trace'.
+                Log.Warning("There are no registered pre-build tasks for current build configuration");
                 return;
             }
 
@@ -37,19 +36,17 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
             foreach (var preBuildTask in platformExecutableBuildConfiguration.PreBuildTasks)
             {
-                Logging.Print($"Starting to perform pre-build task '{preBuildTask.Name}'", LogCategory.Trace);
+                Log.Trace($"Starting to perform pre-build task '{preBuildTask.Name}'");
 
                 stopwatch.Restart();
                 preBuildTask.Perform(platformExecutableBuildConfiguration);
                 stopwatch.Stop();
 
-                Logging.Print(
-                    $"Completed pre-build task '{preBuildTask.Name}' in {stopwatch.Elapsed.TotalSeconds:F2} seconds",
-                    LogCategory.Trace);
+                Log.Trace(
+                    $"Completed pre-build task '{preBuildTask.Name}' in {stopwatch.Elapsed.TotalSeconds:F2} seconds");
             }
 
-            Logging.Print($"{stopwatch.Elapsed.TotalSeconds:F2} seconds spent on pre-build tasks",
-                LogCategory.Trace);
+            Log.Trace($"{stopwatch.Elapsed.TotalSeconds:F2} seconds spent on pre-build tasks");
         }
 
         public override BuildReport PerformCoreBuildOperation()
@@ -61,18 +58,17 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             foreach (var step in buildReport.steps)
             {
-                Logging.Print($"Starting to analyze '{step.name}' build step.", LogCategory.Trace);
+                Log.Trace($"Starting to analyze '{step.name}' build step.");
 
                 foreach (var message in step.messages)
                 {
                     if (message.type.Equals(LogType.Error) || message.type.Equals(LogType.Warning))
                     {
-                        Logging.Print($"{message.type} found, the full log is: {message.content}",
-                            LogCategory.Critical);
+                        Log.Error($"{message.type} found, the full log is: {message.content}");
                     }
                 }
 
-                Logging.Print($"'{step.name}' took {step.duration.Seconds} seconds to complete.", LogCategory.Trace);
+                Log.Trace($"'{step.name}' took {step.duration.Seconds} seconds to complete.");
             }
 
             // Terminate the build by looking at two separate condition:
@@ -89,9 +85,8 @@ namespace UnityBuildHub.Editor.Kernel.Builders
         {
             if (platformExecutableBuildConfiguration.PostBuildTasks.Length == 0)
             {
-                Logging.Print("There are no registered post-build tasks for current build configuration",
-                    LogCategory.Warning);
-
+                // Not sure if this should be 'Warning' but it is also not fit for 'Trace'.
+                Log.Warning("There are no registered post-build tasks for current build configuration");
                 return;
             }
 
@@ -100,19 +95,17 @@ namespace UnityBuildHub.Editor.Kernel.Builders
 
             foreach (var postBuildTask in platformExecutableBuildConfiguration.PostBuildTasks)
             {
-                Logging.Print($"Starting to perform post-build task '{postBuildTask.Name}'", LogCategory.Trace);
+                Log.Trace($"Starting to perform post-build task '{postBuildTask.Name}'");
 
                 stopwatch.Restart();
                 postBuildTask.Perform();
                 stopwatch.Stop();
 
-                Logging.Print(
-                    $"Completed post-build task '{postBuildTask.Name}' in {stopwatch.Elapsed.TotalSeconds:F2} seconds",
-                    LogCategory.Trace);
+                Log.Trace(
+                    $"Completed post-build task '{postBuildTask.Name}' in {stopwatch.Elapsed.TotalSeconds:F2} seconds");
             }
 
-            Logging.Print($"{stopwatch.Elapsed.TotalSeconds:F2} seconds spent on post-build tasks",
-                LogCategory.Trace);
+            Log.Trace($"{stopwatch.Elapsed.TotalSeconds:F2} seconds spent on post-build tasks");
         }
     }
 }
