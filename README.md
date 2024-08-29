@@ -84,6 +84,57 @@ platformExecutableBuilder.AnalyzeBuildReport(platformExecutableBuilder.PerformCo
 platformExecutableBuilder.PerformPostBuildTasks();
 ```
 
+## Further customizing the build pipeline
+
+Unity Build Hub already comes with a default builder that builds executable files for specified platforms, but if you
+like to take more control over it, you can always implement your own builders.
+
+For instance, you can create different types of builders by implementing the `Builder` abstract class.
+
+See the example below:
+
+```csharp
+// Implement this class for your builder.
+public abstract class Builder
+{
+    // Define how builder is going to perform attached pre-build tasks.
+    public abstract void PerformPreBuildTasks();
+
+    // Define what is the core build operation for the builder.
+    public abstract BuildReport PerformCoreBuildOperation();
+
+    // Define way of analyzing Unity produced build report for the builder.
+    public abstract void AnalyzeBuildReport(BuildReport buildReport);
+
+    // Define how builder is going to perform attached post-build tasks.
+    public abstract void PerformPostBuildTasks();
+}
+
+// Create your own custom builder.
+public class CustomBuilderImplementation : Builder
+{
+    public override void PerformPreBuildTasks()
+    {
+        // Your custom way of performing pre-build tasks goes here.
+    }
+
+    public override BuildReport PerformCoreBuildOperations()
+    {
+        // Your custom way of performing core build operations goes here.
+    }
+
+    public abstract void AnalyzeBuildReport(BuildReport buildReport)
+    {
+        // Your custom way to analyze build reports produced by Unity.
+    }
+
+    public abstract void PerformPostBuildTasks()
+    {
+        // Your custom way of performing post-build tasks goes here.
+    }
+}
+```
+
 ## Changelog
 
 Please see [CHANGELOG](https://github.com/iozsaygi/unity-build-hub/blob/main/CHANGELOG.md) for detailed information.
