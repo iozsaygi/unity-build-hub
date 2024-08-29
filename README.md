@@ -123,12 +123,12 @@ public class CustomBuilderImplementation : Builder
         // Your custom way of performing core build operations goes here.
     }
 
-    public abstract void AnalyzeBuildReport(BuildReport buildReport)
+    public override void AnalyzeBuildReport(BuildReport buildReport)
     {
         // Your custom way to analyze build reports produced by Unity.
     }
 
-    public abstract void PerformPostBuildTasks()
+    public override void PerformPostBuildTasks()
     {
         // Your custom way of performing post-build tasks goes here.
     }
